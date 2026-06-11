@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farhod Abdiholiqov | Senior Accountant & BPO Founder</title>
+    <title>Farhod Abdiholiqov | Portfolio</title>
     <style>
         :root {
-            --primary-color: #0B192C; /* Old Money - To'q ko'k (Navy Blue) */
-            --accent-color: #F1E5D1;  /* Premium - Och krem (Cream) */
+            --primary-color: #0B192C; /* Navy Blue */
+            --accent-color: #F1E5D1;  /* Cream */
             --text-dark: #1E2022;
             --bg-light: #F9F9F9;
         }
@@ -18,6 +18,32 @@
             color: var(--text-dark);
             line-height: 1.6;
         }
+        
+        /* Tilni almashtirish paneli */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .lang-btn {
+            background: none;
+            border: none;
+            font-family: sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px 10px;
+            color: #777;
+        }
+        .lang-btn.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
         header {
             background-color: var(--primary-color);
             color: white;
@@ -25,18 +51,10 @@
             text-align: center;
         }
         header h1 { 
-            margin: 0; 
-            font-size: 2.6rem; 
-            letter-spacing: 3px; 
-            font-weight: 400;
-            text-transform: uppercase;
+            margin: 0; font-size: 2.6rem; letter-spacing: 3px; font-weight: 400; text-transform: uppercase;
         }
         header p { 
-            margin: 15px 0 0 0; 
-            font-size: 1.25rem; 
-            color: var(--accent-color); 
-            font-style: italic; 
-            letter-spacing: 1px;
+            margin: 15px 0 0 0; font-size: 1.25rem; color: var(--accent-color); font-style: italic; letter-spacing: 1px;
         }
         .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
         section {
@@ -45,111 +63,282 @@
             border-left: 5px solid var(--primary-color);
         }
         h2 { 
-            color: var(--primary-color); 
-            border-bottom: 1px solid #EAEAEA; 
-            padding-bottom: 12px; 
-            font-weight: 400;
-            margin-top: 0;
-            font-size: 1.5rem;
+            color: var(--primary-color); border-bottom: 1px solid #EAEAEA; padding-bottom: 12px; font-weight: 400; margin-top: 0; font-size: 1.5rem;
         }
+        
+        /* Premium Yutuq bloki */
+        .highlight-box {
+            background-color: #fcf9f3;
+            border: 1px dashed #D0B8A8;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        .highlight-box ul { margin: 0; padding-left: 20px; }
+
         .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;
         }
-        .info-item {
-            font-size: 1.05rem;
-        }
-        .info-item strong {
-            color: var(--primary-color);
-        }
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 20px; }
+        .info-item { font-size: 1.05rem; }
+        .info-item strong { color: var(--primary-color); }
+        
+        .edu-item { margin-bottom: 20px; }
+        .edu-item strong a { color: var(--primary-color); text-decoration: underline; }
+        .edu-year { font-style: italic; color: #666; font-size: 0.95rem; margin-top: 2px; }
+
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 20px; }
         .skill-item { background-color: var(--bg-light); padding: 12px 18px; border-radius: 4px; font-size: 0.95rem; border: 1px solid #EAEAEA; font-weight: 500; }
+        
         .btn-contact {
             display: inline-block; background-color: var(--primary-color); color: white;
             padding: 14px 30px; text-decoration: none; border-radius: 4px;
-            margin-top: 20px; font-family: sans-serif; font-size: 0.95rem; letter-spacing: 1px;
-            font-weight: bold; transition: 0.3s;
+            margin-top: 20px; font-family: sans-serif; font-size: 0.95rem; letter-spacing: 1px; font-weight: bold; transition: 0.3s;
         }
-        .btn-contact:hover {
-            background-color: #162942;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
+        .btn-contact:hover { background-color: #173354; }
         .social-links { margin-top: 30px; border-top: 1px solid #EEE; padding-top: 20px; }
         .social-links a { margin-right: 25px; color: var(--primary-color); text-decoration: none; font-weight: bold; font-family: sans-serif; font-size: 0.95rem; }
-        .social-links a:hover { color: #6b7c96; }
         footer { text-align: center; padding: 40px; font-size: 0.85rem; color: #777; }
+
+        .lang-content { display: none; }
+        .lang-content.active-lang { display: block; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Farhod Abdiholiqov</h1>
-        <p>Senior Accountant & Financial Outsourcing Specialist</p>
-    </header>
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="switchLang('uz')">UZB</button>
+        <button class="lang-btn" onclick="switchLang('ru')">РУС</button>
+    </div>
 
-    <div class="container">
-        
-        <section id="personal-info">
-            <h2>Personal Profile</h2>
-            <div class="info-grid">
-                <div class="info-item"><strong>Full Name:</strong> Abdiholiqov Farhod Nuriddin o'g'li</div>
-                <div class="info-item"><strong>Date of Birth:</strong> August 28, 2001</div>
-                <div class="info-item"><strong>Place of Birth:</strong> Samarkand, Uzbekistan</div>
-                <div class="info-item"><strong>Experience:</strong> 3+ Years in Professional Accounting</div>
-            </div>
-        </section>
+    <div id="lang-uz" class="lang-content active-lang">
+        <header>
+            <h1>Abdiholiqov Farhod</h1>
+            <p>Bosh buxgalter & Moliyaviy autsorsing mutaxassisi</p>
+        </header>
 
-        <section id="about">
-            <h2>Professional Summary</h2>
-            <p>
-                Result-driven and highly disciplined financial professional with over 3 years of hands-on experience in managing corporate accounting, local tax compliance, and financial reporting in Uzbekistan. Currently establishing an independent accounting outsourcing (BPO) firm designed to help international investors and corporate clients navigate local tax regulations, integrate modern ERP systems, and achieve optimal financial compliance.
-            </p>
-        </section>
+        <div class="container">
+            <section id="personal-info-uz">
+                <h2>Shaxsiy ma'lumotlar</h2>
+                <div class="info-grid">
+                    <div class="info-item"><strong>F.I.SH:</strong> Abdiholiqov Farhod Nuriddin o'g'li</div>
+                    <div class="info-item"><strong>Tug'ilgan sana va joyi:</strong> 28-avgust 2001-yil, Samarqand viloyati, Qo'shrabot tumani</div>
+                    <div class="info-item"><strong>Ma'lumoti:</strong> Oliy</div>
+                    <div class="info-item"><strong>Ish tajribasi:</strong> 3 yildan ortiq professional sohada</div>
+                </div>
+            </section>
 
-        <section id="services">
-            <h2>Core Expertise & Services</h2>
-            <ul>
-                <li><strong>Accounting Outsourcing (BPO):</strong> Setup, maintenance, and automation of complete bookkeeping systems for businesses.</li>
-                <li><strong>Tax Compliance & Optimization:</strong> Strategically navigating Uzbek tax legislation to minimize business risks and operational costs.</li>
-                <li><strong>ERP & Software Integration:</strong> Transitioning manual accounting workflows into automated, transparent digital financial platforms.</li>
-                <li><strong>Financial Market Analysis:</strong> Deep technical research and risk management for data-driven corporate financial planning.</li>
-            </ul>
-        </section>
+            <section id="highlights-uz">
+                <h2>Asosiy yutuqlar va maqsad</h2>
+                <div class="highlight-box">
+                    <ul>
+                        <li><strong>1 milliard so'mdan ortiq</strong> soliq summasi qonuniy ravishda optimizatsiya qilingan.</li>
+                        <li><strong>1 yildan ortiq</strong> muddatdan buyon Bosh buxgalter lavozimida muvaffaqiyatli faoliyat.</li>
+                        <li><strong>Asosiy maqsad:</strong> Doimiy ravishda kasbiy rivojlanish va biznes moliya tizimini xavfsiz o'stirish.</li>
+                    </ul>
+                </div>
+                <p>
+                    Jamoada ishlash, soliq va moliya masalalarini tizimlashtirish bo'yicha kuchli ko'nikmalarga egaman. Soliq kodeksi, Mehnat kodeksi hamda sohaga oid barcha qonun va farmonlar bilan mukammal ishlay olaman.
+                </p>
+            </section>
 
-        <section id="skills">
-            <h2>Key Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item">✓ National Accounting Standards (NAS)</div>
-                <div class="skill-item">✓ Uzbek Tax Law & Filing Systems</div>
-                <div class="skill-item">✓ Financial Analytics & Modeling</div>
-                <div class="skill-item">✓ Modern ERP Integration</div>
-                <div class="skill-item">✓ Corporate Financial Consulting</div>
-            </div>
-        </section>
+            <section id="sectors-uz">
+                <h2>Xizmat ko'rsatish yo'nalishlari</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">✓ Import va Eksport (Tashqi faoliyat)</div>
+                    <div class="skill-item">✓ Xizmat ko'rsatish sohasi</div>
+                    <div class="skill-item">✓ Ulgurji savdo</div>
+                    <div class="skill-item">✓ Chakana savdo</div>
+                </div>
+            </section>
 
-        <section id="contact">
-            <h2>Contact & Collaboration</h2>
-            <p>If you are looking for a high-tier financial partner, tax consultant, or outsourcing specialist to scale your business operations safely in Uzbekistan, feel free to reach out.</p>
-            
-            <div class="info-grid" style="margin-bottom: 20px;">
-                <div class="info-item"><strong>Phone:</strong> +998 99 687 42 27</div>
-                <div class="info-item"><strong>Email:</strong> farhodabdiholiqov1@gmail.com</div>
-            </div>
+            <section id="education-uz">
+                <h2>Ta'lim va malaka oshirish</h2>
+                
+                <div class="edu-item">
+                    <strong>Jizzax politexnika instituti</strong>
+                    <div class="edu-year">Bakalavr darajasi | 2019 - 2023 yillar</div>
+                </div>
 
-            <a href="mailto:farhodabdiholiqov1@gmail.com" class="btn-contact">Send Direct Email</a>
-            
-            <div class="social-links">
-                <a href="https://www.linkedin.com" target="_blank">LinkedIn Profile ↗</a>
-                <a href="https://www.instagram.com" target="_blank">Instagram Profile ↗</a>
-            </div>
-        </section>
+                <div class="edu-item">
+                    <strong>Toshkent davlat iqtisodiyot universiteti</strong>
+                    <div class="edu-year">"Soliqlar va soliqqa tortish" – Ikkinchi mutaxassislik (Sirtqi, hozirda davom etmoqda)</div>
+                </div>
+
+                <div class="edu-item">
+                    <strong><a href="https://www.instagram.com/inplus.uz" target="_blank">"Defos" o'quv markazi</a></strong>
+                    <div class="edu-year">"Buxgalteriya 0 dan balansgacha" kursi | 2023-yil</div>
+                </div>
+
+                <div class="edu-item">
+                    <strong><a href="https://www.instagram.com/inplus.uz" target="_blank">"INPLUS" buxgalterlar malaka oshirish markazi</a></strong>
+                    <div class="edu-year">"GLAVBUX" professional kursi | 2024-yil</div>
+                </div>
+
+                <div class="edu-item">
+                    <strong><a href="https://www.instagram.com/inplus.uz" target="_blank">"INPLUS" buxgalterlar malaka oshirish markazi</a></strong>
+                    <div class="edu-year">"Soliq eksperti" kursi | 2025-yil</div>
+                </div>
+
+                <div class="edu-item">
+                    <strong><a href="https://www.instagram.com/inplus.uz" target="_blank">"INPLUS" buxgalterlar malaka oshirish markazi</a></strong>
+                    <div class="edu-year">"Import va eksport" kursi | 2025-yil</div>
+                </div>
+            </section>
+
+            <section id="skills-uz">
+                <h2>Kasbiy sifatlar va amaliy ko'nikmalar</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">✓ Barcha turdagi soliq hisobotlari</div>
+                    <div class="skill-item">✓ Soliqlarni rejalashtirish</div>
+                    <div class="skill-item">✓ Debitor va kreditorlik nazorati</div>
+                    <div class="skill-item">✓ Inventarizatsiya va nazorat</div>
+                    <div class="skill-item">✓ Tashqi iqtisodiy faoliyat va valyuta</div>
+                    <div class="skill-item">✓ Ish haqi, otpusk, dekret hisob-kitoblari</div>
+                    <div class="skill-item">✓ Balans va yakuniy moliyaviy hisobotlar</div>
+                    <div class="skill-item">✓ Korporativ foyda hisobi va tahlili</div>
+                </div>
+            </section>
+
+            <section id="contact-uz">
+                <h2>Hamkorlik uchun aloqa</h2>
+                <p>E'tiboringiz uchun rahmat! Siz bilan biznesingiz moliyaviy barqarorligini ta'minlash yo'lida hamkorlik qilishdan mamnun bo'laman.</p>
+                <div class="info-grid" style="margin-bottom: 20px;">
+                    <div class="info-item"><strong>Telefon:</strong> +998 99 687 42 27</div>
+                    <div class="info-item"><strong>Email:</strong> farhodabdiholiqov1@gmail.com</div>
+                </div>
+                <a href="mailto:farhodabdiholiqov1@gmail.com" class="btn-contact">Emailga yozish</a>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com" target="_blank">LinkedIn Profil ↗</a>
+                    <a href="https://www.instagram.com" target="_blank">Instagram Profil ↗</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <div id="lang-ru" class="lang-content">
+        <header>
+            <h1>Абдихоликов Фарход</h1>
+            <p>Главный бухгалтер & Специалист по финансовому аутсорсингу</p>
+        </header>
+
+        <div class="container">
+            <section id="personal-info-ru">
+                <h2>Личная информация</h2>
+                <div class="info-grid">
+                    <div class="info-item"><strong>ФИО:</strong> Абдихоликов Фарход Нуриддин угли</div>
+                    <div class="info-item"><strong>Дата и место рождения:</strong> 28 августа 2001 г., Самаркандская область, Кошрабадский район</div>
+                    <div class="info-item"><strong>Образование:</strong> Высшее</div>
+                    <div class="info-item"><strong>Опыт работы:</strong> Более 3 лет в профессиональной сфере</div>
+                </div>
+            </section>
+
+            <section id="highlights-ru">
+                <h2>Ключевые достижения и цель</h2>
+                <div class="highlight-box">
+                    <ul>
+                        <li>Законно оптимизировал сумму налогов на сумму <strong>более 1 миллиарда сумов</strong>.</li>
+                        <li>Успешно работаю на должности Главного бухгалтера <strong>более 1 года</strong>.</li>
+                        <li><strong>Главная цель:</strong> Постоянное профессиональное развитие и обеспечение финансовой безопасности бизнеса.</li>
+                    </ul>
+                </div>
+                <p>
+                    Обладаю сильными навыками командной работы, систематизации налоговых и финансовых вопросов. Безупречно работаю с Налоговым кодексом, Трудовым кодексом, а также всеми профильными законами и указами РУз.
+                </p>
+            </section>
+
+            <section id="sectors-ru">
+                <h2>Сферы обслуживания</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">✓ Импорт и Экспорт (ВЭД)</div>
+                    <div class="skill-item">✓ Сфера оказания услуг</div>
+                    <div class="skill-item">✓ Оптовая торговля</div>
+                    <div class="skill-item">✓ Розничная торговля</div>
+                </div>
+            </section>
+
+            <section id="education-ru">
+                <h2>Образование и повышение квалификации</h2>
+                
+                <div class="edu-item">
+                    <strong>Джизакский политехнический институт</strong>
+                    <div class="edu-year">Степень бакалавра | 2019 - 2023 гг.</div>
+                </div>
+
+                <div class="edu-item">
+                    <strong>Ташкентский государственный экономический университет</strong>
+                    <div class="edu-year">"Налоги и налогообложение" – Второе высшее образование (Заочное, обучаюсь в настоящее время)</div>
+                </div>
+
+                <div class="edu-item">
+                    <strong><a href="https://www.instagram.com/inplus.uz" target="_blank">Учебный центр "Defos"</a></strong>
+                    <div class="edu-year">Курс "Бухгалтерия от 0 до баланса" | 2023 г.</div>
+                </div>
+
+                <div class="edu-item">
+                    <strong><a href="https://www.instagram.com/inplus.uz" target="_blank">Центр повышения квалификации бухгалтеров "INPLUS"</a></strong>
+                    <div class="edu-year">Профессиональный курс "ГЛАВБУХ" | 2024 г.</div>
+                </div>
+
+                <div class="edu-item">
+                    <strong><a href="https://www.instagram.com/inplus.uz" target="_blank">Центр повышения квалификации бухгалтеров "INPLUS"</a></strong>
+                    <div class="edu-year">Курс "Налоговый эксперт" | 2025 г.</div>
+                </div>
+
+                <div class="edu-item">
+                    <strong><a href="https://www.instagram.com/inplus.uz" target="_blank">Центр повышения квалификации бухгалтеров "INPLUS"</a></strong>
+                    <div class="edu-year">Курс "Импорт и экспорт" | 2025 г.</div>
+                </div>
+            </section>
+
+            <section id="skills-ru">
+                <h2>Профессиональные качества и практические навыки</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">✓ Работа со всеми видами налоговой отчетности</div>
+                    <div class="skill-item">✓ Налоговое планирование</div>
+                    <div class="skill-item">✓ Контроль дебиторской и кредиторской задолженности</div>
+                    <div class="skill-item">✓ Инвентаризация и внутренний аудит</div>
+                    <div class="skill-item">✓ Внешнеэкономическая деятельность (ВЭД) и валютные операции</div>
+                    <div class="skill-item">✓ Расчет заработной платы, отпускных и декретных</div>
+                    <div class="skill-item">✓ Составление баланса и финальной финансовой отчетности</div>
+                    <div class="skill-item">✓ Расчет и анализ корпоративной прибыли</div>
+                </div>
+            </section>
+
+            <section id="contact-ru">
+                <h2>Контакты для сотрудничества</h2>
+                <p>Благодарю за внимание! Буду рад сотрудничеству в целях обеспечения финансовой стабильности и роста вашего бизнеса.</p>
+                <div class="info-grid" style="margin-bottom: 20px;">
+                    <div class="info-item"><strong>Телефон:</strong> +998 99 687 42 27</div>
+                    <div class="info-item"><strong>Email:</strong> farhodabdiholiqov1@gmail.com</div>
+                </div>
+                <a href="mailto:farhodabdiholiqov1@gmail.com" class="btn-contact">Написать на Email</a>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com" target="_blank">Профиль LinkedIn ↗</a>
+                    <a href="https://www.instagram.com" target="_blank">Профиль Instagram ↗</a>
+                </div>
+            </section>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Farhod Abdiholiqov. Portfolio Website. All rights reserved.</p>
+        <p>&copy; 2026 Farhod Abdiholiqov. All rights reserved.</p>
     </footer>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active-lang'));
+            document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+            
+            if(lang === 'uz') {
+                document.getElementById('lang-uz').classList.add('active-lang');
+                document.querySelectorAll('.lang-btn')[0].classList.add('active');
+            } else if(lang === 'ru') {
+                document.getElementById('lang-ru').classList.add('active-lang');
+                document.querySelectorAll('.lang-btn')[1].classList.add('active');
+            }
+        }
+    </script>
 
 </body>
 </html>
